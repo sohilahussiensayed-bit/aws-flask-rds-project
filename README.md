@@ -1,29 +1,32 @@
-# aws-flask-rds-project
-Simple web application deployed on AWS using:
+# AWS Flask RDS Project
 
+Simple web application deployed on AWS using:
 - EC2
-- RDS MySQL
+- RDS
 - Flask
 - Security Groups
 
-## Features
-- Add users
-- Store data in MySQL
-- Read data from database
-
-## AWS Services Used
-- EC2
-- RDS
-- IAM
-- Security Groups
+---
 
 ## Architecture
 
 User -> EC2 Flask App -> RDS MySQL
 
-## Run Locally
+---
 
-```bash
-pip install -r requirements.txt
-python3 app.py
-```
+## Screenshots
+
+### Website
+![Website](screenshots/website.png)
+
+### EC2 Instance
+![EC2](screenshots/EC2.png)
+
+### RDS Database
+![RDS](screenshots/RDS.png)
+
+### Security Groups
+![Security Group](screenshots/SecurityGroup.png)
+
+### Terminal
+![Terminal](screenshots/terminal.png)
