@@ -6,7 +6,7 @@ A simple cloud-based web application built with Flask and deployed on AWS using 
 
 ## 🏗️ Architecture
 
-User → Auto Scaling Group (EC2 Instances) → RDS MySQL
+User → Application Load Balancer → Auto Scaling Group (EC2 Instances) → RDS MySQL
 ---
 
 
@@ -18,6 +18,7 @@ User → Auto Scaling Group (EC2 Instances) → RDS MySQL
 - AWS EC2
 - AWS RDS (MySQL)
 - AWS Auto Scaling Group
+- Application Load Balancer (ALB)
 - Security Groups
 
 ---
@@ -26,25 +27,28 @@ User → Auto Scaling Group (EC2 Instances) → RDS MySQL
 
 - Insert & retrieve data from MySQL (RDS)
 - Web interface using Flask
+- Load balanced traffic using ALB
 - Scalable backend using Auto Scaling
 - Cloud deployment on AWS
 
 ---
 
-## 📈 Auto Scaling
+## 📈 Auto Scaling & Load Balancer
 
-AWS Auto Scaling Group is used to manage EC2 instances automatically.
+The system uses:
+- **Application Load Balancer (ALB)** to distribute traffic across instances
+- **Auto Scaling Group** to automatically manage EC2 instances based on demand
 
-- Launches instances when needed
-- Replaces unhealthy instances
-- Maintains availability and scalability
+This ensures:
+- High availability
+- Fault tolerance
+- Scalability under load
 
-**Configuration:**
-- Launch Template: Flask EC2 instance
-- Min: 1 | Desired: 1 | Max: (your config)
-
-📸 Screenshot:
+📸 Auto Scaling:
 ![Auto Scaling](screenshots/autoscaling.png)
+
+📸 Load Balancer:
+![Load Balancer](screenshots/loadbalancer.png)
 
 ---
 
@@ -67,9 +71,11 @@ AWS Auto Scaling Group is used to manage EC2 instances automatically.
 
 ## 📌 How it works
 
-1. User accesses Flask app on EC2
-2. Data is stored in RDS database
-3. Auto Scaling ensures app availability
+1. User accesses the ALB DNS
+2. ALB distributes traffic to EC2 instances
+3. Flask app processes requests
+4. Data is stored in RDS
+5. Auto Scaling maintains instance availability
 
 ---
 
